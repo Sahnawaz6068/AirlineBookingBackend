@@ -24,8 +24,11 @@
  -`middlewares` ->They are just going to intercept the incomming request where we can write our validators,authenticators etc.
 
  -`controllers`->They are kind of the last middleware as post them you call your bussiness layer to execute bussiness logic.In controllers we just recive the incomming request and data and pass it to bussiness laye and once bussiness layer returns the an output, we structure the API response in controllers and send the output.
+
  -`repositories`-This folder all the logic using which we intract the DB by writing the queries, all the all raw queries orm queries will go here.
+
  -`services` ->Contain all the business logic and interact with the repo for the data from the database.
+ 
  -`utils` ->Utils contain helper methos,error classes.
 ### Technology (Backend)
 *Node js 
