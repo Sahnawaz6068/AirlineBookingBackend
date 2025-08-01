@@ -1,10 +1,7 @@
 const express=require("express");
+const {infoCntroller}=require('../../controllers');
 const router=express.Router();
 
-router.get('/info',(req,res)=>{
-    return res.json({
-        msg:"everything is Just okey"
-    })
-})
+router.get('/info',infoCntroller.info);
 
 module.exports=router;
