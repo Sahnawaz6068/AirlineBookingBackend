@@ -1,11 +1,14 @@
 const express=require('express');
-const {PORT}=require('./config');
 const apiRoutes=require("./routes");
+const {serverConfig,logger}=require("./config");
 
-console.log(PORT);
+
 const app=express();
 app.use('/api',apiRoutes);
 
-app.listen(PORT,()=>{
-    console.log(`The server is running on the port: ${PORT}`)
+console.log(serverConfig.PORT);
+
+app.listen(serverConfig.PORT,()=>{
+    console.log(`The server is running on the port: ${serverConfig.PORT}`);
+    logger.info("sucessfully started server","root",{});
 })
