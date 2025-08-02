@@ -2,7 +2,6 @@ const express=require('express');
 const apiRoutes=require("./routes");
 const {serverConfig,logger}=require("./config");
 
-
 const app=express();
 app.use('/api',apiRoutes);
 
