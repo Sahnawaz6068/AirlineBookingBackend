@@ -32,9 +32,10 @@
 - `utils` ->Utils contain helper methos,error classes.
 ### Technology (Backend)
 *Node js 
-*MySQL Database
+*Postgress sql
 *Express js
-
+ -previously moving with Mysql db but now we moving with postgress-sql.
+ -
 ## 🚀 Getting Started
 Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
