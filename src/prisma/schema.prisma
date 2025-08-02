@@ -27,3 +27,9 @@ model Airplane {
   modelNumber String  @unique
   capacity    Int     @default(200) 
 }
+
+model Airplan2 {
+  id Int  @default(autoincrement()) @id
+  modelNumber String
+  capacity Int @default(230)
+}
