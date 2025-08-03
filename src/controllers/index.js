@@ -1,4 +1,3 @@
-const createAirplan = require("./airplan-controllers");
 
 module.exports={
     infoCntroller:require("./info-controllers"),

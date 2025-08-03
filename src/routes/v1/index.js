@@ -1,10 +1,19 @@
-const express=require("express");
-const {infoCntroller,userController, airplaneControllers}=require('../../controllers');
-const router=express.Router();
+const express = require("express");
+const {
+  infoCntroller,
+  userController,
+  airplaneControllers,
+} = require("../../controllers");
+const { AirplaneMiddlewares } = require("../../middlewares");
+const router = express.Router();
 
 router.use(express.json());
-router.get('/info',infoCntroller.info);
-router.post('/user',userController.createUser);
-router.post('/create-airPlane',airplaneControllers.createAirplane);
+router.get("/info", infoCntroller.info);
+router.post("/user", userController.createUser);
+router.post(
+  "/create-airPlane",
+  AirplaneMiddlewares.validateCreateRequest,
+  airplaneControllers.createAirplane
+);
 
-module.exports=router;
+module.exports = router;

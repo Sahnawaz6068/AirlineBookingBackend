@@ -23,10 +23,13 @@ model User {
 }
  
 model Airplane {
-  id          Int     @id @default(autoincrement())
-  modelNumber String  @unique
-  capacity    Int     @default(200) 
+  id          Int      @id @default(autoincrement())
+  modelNumber String   @unique
+  capacity    Int      @default(200)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime?  @updatedAt
 }
+
 
 model Airplan2 {
   id Int  @default(autoincrement()) @id

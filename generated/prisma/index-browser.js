@@ -131,6 +131,14 @@ exports.Prisma.UserScalarFieldEnum = {
 exports.Prisma.AirplaneScalarFieldEnum = {
   id: 'id',
   modelNumber: 'modelNumber',
+  capacity: 'capacity',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.Airplan2ScalarFieldEnum = {
+  id: 'id',
+  modelNumber: 'modelNumber',
   capacity: 'capacity'
 };
 
@@ -152,7 +160,8 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Airplane: 'Airplane'
+  Airplane: 'Airplane',
+  Airplan2: 'Airplan2'
 };
 
 /**
