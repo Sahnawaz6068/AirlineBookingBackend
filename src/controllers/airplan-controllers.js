@@ -6,12 +6,11 @@ const client = new PrismaClient();
 
 const createAirplane = async (req, res) => {
   const { id, modelNumber, capacity } = req.body;
-  console.log("---------------------------------------------jjjjj");
+  console.log(id, modelNumber, capacity);
   try {
     airplanValidator(req);
     const airplane = await client.airplane.create({
       data: {
-        id: parseInt(id),
         modelNumber,
         capacity: parseInt(capacity),
       },
@@ -20,9 +19,22 @@ const createAirplane = async (req, res) => {
     res.status(StatusCodes.CREATED).json(SuccessResponse);
   } catch (err) {
     ErrorResponse.error = err.message;
-    // console.log(err);
     res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
   }
 };
 
-module.exports = { createAirplane };
+const getAirplane = async (req, res) => {
+  try {
+    const airplanes = await client.airplane.findMany();
+
+    res.status(StatusCodes.OK).json({
+      msg: airplanes,
+    });
+  } catch (err) {
+    res.status(StatusCodes.BAD_REQUEST).json({
+      error: err,
+    });
+  }
+};
+
+module.exports = { createAirplane,getAirplane };

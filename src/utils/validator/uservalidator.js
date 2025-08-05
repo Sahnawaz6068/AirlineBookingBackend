@@ -1,15 +1,9 @@
 const validator = require("validator");
 
 function userSignupValidator(req) {
-  console.log(
-    "gvdhfjklsa;sdksjfbhgdfkdfhdgfjkdjsfdbfj-------------------------"
-  );
-  const { userName, password, email, id } = req.body;
-  if (userName == null || email == null || password == null || id == null) {
+  const { userName, password, email} = req.body;
+  if (userName == null || email == null || password == null ) {
     throw new Error("Enter every field");
-  }
-  if (!validator.isInt(id.toString())) {
-    throw new Error("ID must be a valid integer.");
   }
 
   if (!validator.isLength(userName, { min: 4, max: 50 })) {
@@ -24,7 +18,6 @@ function userSignupValidator(req) {
     throw new Error("Enter valid email formate");
   }
 }
-console.log("End ofllllllllllllllllllllllllllllllllllllll")
 module.exports = {
   userSignupValidator,
 };
