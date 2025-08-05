@@ -18,6 +18,8 @@ router.post(
   airplaneControllers.createAirplane
 );
 
-router.get("/getAirplane",airplaneControllers.getAirplane);
+router.get("/getAirplanes",airplaneControllers.getAirplanes);
+
+router.get("/getAirplane/:id",airplaneControllers.getAirplane);
 
 module.exports = router;
