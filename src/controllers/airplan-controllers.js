@@ -47,15 +47,41 @@ const getAirplane = async (req, res) => {
         id: parseInt(id),
       },
     });
-    res.status(StatusCodes.BAD_REQUEST).json({
+    if(!airplan){
+      throw new Error("With this id airplan not found");
+    }
+    res.status(StatusCodes.OK).json({
       airplane: airplan,
     });
   } 
   catch (err) {
     res.status(StatusCodes.BAD_REQUEST).json({
-      err: err,
+      err: err.message,
     });
   }
 };
 
-module.exports = { createAirplane, getAirplanes,getAirplane };
+//delete airplan using plan id
+const deleteAirlplane=async (req,res)=>{
+  console.log("dlete kar bo")
+  const idString=req.params.id;
+  const id=parseInt(idString);
+  try{
+      const response=await client.airplane.delete({
+    where:{
+      id:id
+    }
+  })
+  res.status(StatusCodes.OK).json({
+    msg:"Airplan deleted sucessfully",
+    res:response
+  })
+  }catch(err){
+    res.status(StatusCodes.BAD_REQUEST).json({
+      error:err
+    })
+  }
+
+}
+
+module.exports = { createAirplane, getAirplanes,getAirplane,deleteAirlplane };
