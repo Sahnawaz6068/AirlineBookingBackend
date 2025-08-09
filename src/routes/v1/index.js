@@ -5,7 +5,7 @@ const {
   airplaneControllers,
   cityController,
 } = require("../../controllers");
-const { AirplaneMiddlewares } = require("../../middlewares");
+const { AirplaneMiddlewares, CityMiddleware } = require("../../middlewares");
 const router = express.Router();
 
 router.use(express.json());
@@ -33,6 +33,7 @@ router.delete("/airplane/:id", airplaneControllers.deleteAirlplane);
 router.patch("/updateAirplane/:id", airplaneControllers.updateAirplane);
 
 //City Routes
-router.post("/cities",cityController.createCity);
+router.post("/cities",CityMiddleware.validateCreateRequest,cityController.createCity);
 
 module.exports = router;
+ 
