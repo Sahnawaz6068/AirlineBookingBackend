@@ -36,6 +36,16 @@ model City {
   name String @unique 
   createdAt   DateTime @default(now())
   updatedAt   DateTime?  @updatedAt
+
+  airports Airport[]
 }
 
+model Airport {
+  id Int @id @default(autoincrement())
+  name String @unique
+  code String @unique
+  address String  @unique
+  cityId Int
 
+  city City @relation(fields: [cityId],references: [id])
+}

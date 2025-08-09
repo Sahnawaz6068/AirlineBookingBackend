@@ -34,6 +34,10 @@ router.patch("/updateAirplane/:id", airplaneControllers.updateAirplane);
 
 //City Routes
 router.post("/cities",CityMiddleware.validateCreateRequest,cityController.createCity);
+//delete city
+router.delete("/cities/:id",cityController.deleteCity);
+//update city
+router.patch("/cities/:id",cityController.updateCity);
+
 
 module.exports = router;
- 
